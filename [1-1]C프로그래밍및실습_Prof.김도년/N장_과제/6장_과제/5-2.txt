@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int main(){
+
+	/* Type or paste your code in this area */
+    int N ; // 변수 n 선언
+   int M = 0; // 변수 m선언 및 초기화
+   scanf("%d" ,&N); // 정수 n 입력 받기
+   while(N > 0){
+      int a = N % 10; // a에 n의 일의 자리 수 대입
+      M = M * 10 + a; // m에 10을곱하고 a를 더하여 m에 대입
+      N = N / 10; // 다음 자리 수로 넘어가기
+   }
+   printf("%d",M * M); // 결과출력
+	return 0;
+}

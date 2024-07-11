@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+int main(){
+
+	/* Type or paste your code in this area */
+ int N; // 변수 n 선언
+   scanf("%d", &N); // 정수 n 입력 받기
+
+   for (int i = 1; i <= N; i++) { // i가 1부터 n까지 1씩 커짐
+         for(int j = N - 1; j >= 0; j--) { // j가 n-1 부터 0까지 1씩 작아짐
+            printf(" "); // 공백 출력
+         }
+            for (int k = 1; k <= 2 * i - 1 ; k++) { // k가 1부터 2*i-1까지 1씩 커짐
+               if (i != 1 && i != N){ // 첫번째와 마지막 줄이 아니고
+                  if (k != 1 && k != 2 * i - 1) // 한 줄에서 시작과 끝이 아니면
+                     printf("O"); // O출력
+                  else // 한줄의 시작과 끝이면
+                     printf("X"); // X출력
+               }
+               else // 첫번째줄 이거나 마지막 줄이면
+                  printf("X"); //X 출력
+            }
+            printf("\n"); // 줄 바꿈 출력
+}
+	return 0;
+}

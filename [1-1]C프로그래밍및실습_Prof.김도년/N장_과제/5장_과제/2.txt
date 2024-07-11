@@ -1,0 +1,105 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int a, b, c;
+	scanf("%d %d %d", &a, &b, &c);
+
+	int total_price = 0;
+	
+	if (a == 1)
+	{
+		total_price += 15000;
+		printf("Pizza\n");
+	}
+	else if (a == 2)
+	{
+		total_price += 5000;
+		printf("Burger\n");
+	}
+	else if (a == 3)
+	{
+		total_price += 4500;
+		printf("Salad\n");
+	}
+	else if (a == 4)
+	{
+		total_price += 800;
+		printf("Ice cream\n");
+	}
+	else if (a == 5)	
+	{
+		total_price += 500;
+		printf("Beverage\n");
+	}
+	else
+	{
+		printf("None\n");
+	}
+
+	if (b == 1)
+	{
+		total_price += 15000;
+		printf("Pizza\n");
+	}
+	else if (b == 2)
+	{
+		total_price += 5000;
+		printf("Burger\n");
+	}
+	else if (b == 3)
+	{
+		total_price += 4500;
+		printf("Salad\n");
+	}
+	else if (b == 4)
+	{
+		total_price += 800;
+		printf("Ice cream\n");
+	}
+	else if (b == 5)
+	{
+		total_price += 500;
+		printf("Beverage\n");
+	}
+	else
+	{
+		printf("None\n");
+	}
+
+	if (c == 1)
+	{
+		total_price += 15000;
+		printf("Pizza\n");
+	}
+	else if (c == 2)
+	{
+		total_price += 5000;
+		printf("Burger\n");
+	}
+	else if (c == 3)
+	{
+		total_price += 4500;
+		printf("Salad\n");
+	}
+	else if (c == 4)
+	{
+		total_price += 800;
+		printf("Ice cream\n");
+	}
+	else if (c == 5)
+	{
+		total_price += 500;
+		printf("Beverage\n");
+	}
+	else
+	{
+		printf("None\n");
+	}
+
+	printf("Total:%dwon", total_price);
+
+	return 0;
+}

@@ -1,0 +1,31 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	//뒤에 00 제거
+	int edit_n = n / 100;
+
+	//edit_n 올바른 값 : 100 ~ 105
+	if (edit_n >= 100 && edit_n <= 105)
+	{
+		int digit = (n / 100) % 10;
+
+		if (digit == 0 || digit == 1 || digit == 2)	printf("Seoul");
+
+		else if (digit == 3 || digit == 4)	printf("Busan");
+
+		else if (digit == 5)	printf("Gwangju");
+	}
+	else
+	{
+		printf("none");
+	}
+
+
+	return 0;
+}

@@ -1,0 +1,29 @@
+#include<stdio.h>
+
+int main(){
+
+	/* Type or paste your code in this area */
+int N; // 변수 n 선언
+   while(1){ 
+      scanf("%d", &N); // 정수 n 입력qkerl
+      if (N == 0 || N < 0 || N % 3 == 0) // n이 0이거나 n이 음의정수 이거나 n이 3의 배수라면
+         break; // 종료
+      for (int i = 1; i <= N; i++) { // i가 1부터 n까지 1씩 커짐
+            for(int j = N - 1; j >= 0; j--) { // j가 n-1 부터 0까지 1씩 작아짐
+               printf(" "); // 공백 출력
+            }
+               for (int k = 1; k <= 2 * i - 1 ; k++) { // k가 1부터 2*i-1까지 1씩 커짐
+                  if (i != 1 && i != N){ // 첫번째 줄과 마지막 줄이 아니라면
+                     if (k != 1 && k != 2 * i - 1) // 한 줄에서 시작과 끝이 아니면
+                        printf("O"); // O 출력
+                     else // 한줄에서 시작과 끝이면
+                        printf("X"); // X출력
+                  }
+                  else // 첫번째줄 이거나 마지막 줄이면
+                     printf("X"); // X 출력
+               }
+               printf("\n"); // 줄 바꿈 출력
+      }
+   }
+	return 0;
+}

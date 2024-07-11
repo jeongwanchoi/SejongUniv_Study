@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int a, b, c;
+	scanf("%d %d %d", &a, &b, &c);
+
+	int found = 0;
+	if (a + b == c)
+	{
+		printf("+\n");
+		found = 1;
+	}
+	if (a - b == c)
+	{
+		printf("-\n");
+		found = 1;
+	}
+	if (a * b == c)
+	{
+		printf("*\n");
+		found = 1;
+	}
+	if (a / b == c)
+	{
+		printf("/\n");
+		found = 1;
+	}
+	if (!found)	printf("Incorrect");
+
+
+	return 0;
+}

@@ -1,0 +1,28 @@
+#include<stdio.h>
+
+int main(){
+
+	/* Type or paste your code in this area */
+int t , n; // 변수 선언
+   int count = 0 , less = 0 , greater = 0 ; // 변수 선언 및 초기화
+   scanf("%d" ,&t); // T의 정수 저장
+   while(1){ 
+      scanf("%d" ,&n); // N에 정수 저장
+      if (n == 0) // N이 0이면
+         break; // 종료
+      while(n > 0){ // N이 0보다 크다면
+         int a = n % 10; // 각 자리수를 저장할 변수 a설정
+         if(a == t) // a가 T와 같다면
+            count += 1; // count 1개추가
+         else if(a < t) // a가 T보다 작다면
+            less += 1; // less 1개추가
+         else{ // 그 외
+            greater += 1; // greater 1개추가
+         }
+         n = n / 10; // N값을 10으로 나눈 몫을 N에 다시 저장
+      }
+   }
+   printf("%d %d %d" ,count ,less ,greater); // 출력
+
+	return 0;
+}

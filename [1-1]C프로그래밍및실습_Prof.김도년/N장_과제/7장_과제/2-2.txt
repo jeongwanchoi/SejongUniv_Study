@@ -1,0 +1,72 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	char X[100];
+	int X_idx = -1;
+	char ch;
+	while(1)
+	{
+		scanf("%c", &ch);
+		if (ch != '!')	X[++X_idx] = ch;
+		else	break;
+	}
+
+	char Y[100];
+	int Y_idx = -1;
+	for (int i = 0; i <= X_idx; i++)
+	{
+		int found = 0;
+		for (int j = 0; j <= Y_idx; j++)
+		{
+			if (X[i] == Y[j])	found = 1;
+		}
+
+		if (!found)
+		{
+			Y[++Y_idx] = X[i];
+		}
+	}
+	for (int i = 0; i <= Y_idx; i++)
+	{
+		printf("%c", Y[i]);
+	}
+	printf("\n");
+
+	int m;
+	scanf("%d", &m);
+	getchar();
+	char Z[100];
+	int Z_idx = m-1;
+	for (int i = 0; i < m; i++)	scanf("%c", &Z[i]);
+
+	int is_last = 0;
+	for (int i = 0; i <= Y_idx-Z_idx; i++)
+	{
+		int found = 0;
+		if (i == Y_idx - Z_idx)	is_last = 1;
+		for (int j = 0; j <= Z_idx; j++)
+		{
+			if (Y[i + j] != Z[j])
+			{
+				found = 1;
+				break;
+			}
+		}
+		if (!found)
+		{
+			printf("%d", i);
+			break;
+		}
+		if (is_last == 1 && found == 1)
+		{
+			printf("none");
+		}
+	}
+
+
+
+	return 0;
+}

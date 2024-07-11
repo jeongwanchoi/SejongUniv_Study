@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+int main(){
+
+	/* Type or paste your code in this area */
+int t, n; // 변수 선언
+    int count = 0, less = 0, greater = 0; // 변수 선언 및 초기화
+
+    scanf("%d", &t); // T에 정수 저장
+
+    while (1) {
+        scanf("%d", &n); // N에 정수 저장
+        if (n == 0) // 0이 입력되면
+        break; // 반복 종료
+
+        if (n == t) { // N이 T와 동일하면
+            count++; //  count에 +1 하기
+        } else if (n < t) { // N이 T보다 작으면
+            less++; // less에 +1 하기
+        } else {// N이 T보다 크면
+            greater++;  // greater에 +1 하기
+        }
+    }
+    printf("%d %d %d\n", count, less, greater); // 결과 출력
+	return 0;
+}

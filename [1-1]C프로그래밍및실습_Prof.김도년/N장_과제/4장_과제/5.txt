@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	//n : '3'자리 양의 정수
+	int n;
+	scanf("%d", &n);
+
+	int HUN = n / 100;
+	int TEN = (n % 100) / 10;
+	int ONE = n % 10;
+
+	int Q =
+		(HUN == TEN && TEN == ONE && ONE == HUN) * 3
+		+ ((HUN == TEN && TEN != ONE) || (TEN == ONE && ONE != HUN) || (ONE == HUN && HUN != TEN)) * 2
+		+ (HUN != TEN && TEN != ONE && ONE != HUN) * 1;
+
+	printf("%d", Q);
+
+	return 0;
+}

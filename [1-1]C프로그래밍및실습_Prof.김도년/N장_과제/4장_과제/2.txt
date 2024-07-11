@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int year;
+	scanf("%d", &year);
+
+	//condition부분에 `()`감싸기
+	char type =
+		(year % 400 == 0) ? 'L' :
+		(year % 100 == 0) ? 'C' :
+		(year % 4 == 0) ? 'L' : 'C';
+
+	printf("%c", type);
+
+	return 0;
+}

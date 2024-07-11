@@ -1,0 +1,98 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	if (n >= 10 && n <= 99)
+	{
+		int tens_digit = n / 10;
+		int unit_digit = n % 10;
+		if (n >= 10 && n <= 19)
+		{
+			if (unit_digit == 0)	printf("ten");
+			else if (unit_digit == 1)	printf("eleven");
+			else if (unit_digit == 2)	printf("twelve");
+			else if (unit_digit == 3)	printf("thirteen");
+			else if (unit_digit == 4)	printf("fourteen");
+			else if (unit_digit == 5)	printf("fifteen");
+			else if (unit_digit == 6)	printf("sixteen");
+			else if (unit_digit == 7)	printf("seventeen");
+			else if (unit_digit == 8)	printf("eighteen");
+			else if (unit_digit == 9)	printf("nineteen");
+		}
+		
+		else //20~99
+		{
+			switch (tens_digit)
+			{
+			case 2:
+				printf("twenty");
+				break;
+			case 3:
+				printf("thirty");
+				break;
+			case 4:
+				printf("fourty");
+				break;
+			case 5:
+				printf("fifty");
+				break;
+			case 6:
+				printf("sixty");
+				break;
+			case 7:
+				printf("seventy");
+				break;
+			case 8:
+				printf("eighty");
+				break;
+			case 9:
+				printf("ninety");
+				break;
+			}
+			if (unit_digit != 0)
+			{
+				switch (unit_digit)
+				{
+				case 1:
+					printf("-one");
+					break;
+				case 2:
+					printf("-two");
+					break;
+				case 3:
+					printf("-tree");
+					break;
+				case 4:
+					printf("-four");
+					break;
+				case 5:
+					printf("-five");
+					break;
+				case 6:
+					printf("-six");
+					break;
+				case 7:
+					printf("-seven");
+					break;
+				case 8:
+					printf("-eight");
+					break;
+				case 9:
+					printf("-nine");
+					break;
+				}
+			}
+		}
+	}
+	else
+	{
+		printf("none");
+	}
+
+	return 0;
+}

@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+int main(){
+
+	/* Type or paste your code in this area */
+    int n, m; // 변수 N,M 선언
+
+    scanf("%d", &n); // N에 정수 저장
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &m); // M에 정수 저장
+        
+        printf("%d: ", m); // M 출력
+        for (int j = 1; j <= m; j++) {
+            if (m % j == 0) { // j가 M의 약수면 
+                printf("%d ", j); // j 출력
+            }
+        }
+    printf("\n"); // 줄바꿈 출력
+    }
+	return 0;
+}

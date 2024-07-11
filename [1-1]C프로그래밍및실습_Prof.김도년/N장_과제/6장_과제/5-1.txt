@@ -1,0 +1,14 @@
+#include<stdio.h>
+
+int main(){
+
+	/* Type or paste your code in this area */
+ int n; // 변수 N 선언
+    scanf("%d", &n);  // 정수 N 입력 받기
+    while (n > 0) {
+        int a = n % 10;  // N의 가장 오른쪽 숫자 찹디
+        printf("%d", a); // 결과출력
+        n /= 10; // N을 10으로 나누어 다음 자리 숫자로 넘어가기
+    }
+	return 0;
+}

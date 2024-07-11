@@ -1,0 +1,61 @@
+#include<stdio.h>
+
+int main(){
+
+	/* Type or paste your code in this area */
+ int n, m; // 변수 N,M 선언
+   int i, j; // 변수 i,j 선언
+
+    scanf("%d %d", &n, &m); // N,M에 정수 저장
+
+    if (n > m) { // N이 M보다 크면 순서 바꾸기
+        int a = n; // a에 N 대입
+        n = m; // N에 M대입
+        m = a; // M에 a 대입
+    }
+ 
+    int max = 0; // 약수의 최대개수 변수 선언, 초기화
+    int num = 0; // 약수의 개수가 가장 큰 수 변수선언, 초기화
+    int max_total = 0; // 소인수의 지수합 변수 선언, 초기화
+
+    for (i = n; i <= m; i++) {
+        int N = i; // 현재 숫자 
+        int divisorcount = 1; // 약수의 개수 세기
+        int total = 0; // 소인수 지수의 합 세기
+        int count = 0; // 소인수의 지수 세기
+
+        while (N % 2 == 0) {// 2가 n의 약수일 동안
+            N /= 2; // 2로 나누는 소인수 분해
+            count++; // count에 +1 하기
+        }
+     if (count > 0) { // count가 있으면
+            divisorcount *= (count + 1); // 약수의 개수 계산
+            total += count; //지수의 합 계산
+        }
+
+        for (j = 3; j * j <= n; j += 2) { //3이상의 홀수일 때
+            count = 0; // 0으로 초기화
+            while (N % j == 0) { // j가 n의 약수일 동안
+                N /= j; // j로 나누는 소인수 분해
+                count++; // count에 +1 하기
+            }
+            if (count > 0) { // count가 있으면
+                divisorcount *= (count + 1); // 약수의 개수 계산
+                total += count; // 지수의 합 계산
+            }
+        }
+
+        if (N > 1) { // n이 1보다 크다면 
+            divisorcount *= 2; // 약수의 개수에 2 곱하기 (1과 n)
+            total += 1; // 지수의 합에 +1 하기 (지수가 1)
+        }
+        
+        if (divisorcount > max) { // 약수의 개수가 최대값보다 크면
+            max = divisorcount; // 최대 약수의 개수는 약수의 개수
+            num = i; // 약수의 개수가 가장 큰 수는 i
+            max_total = total; // 소인수의 지수합은 total
+        }
+    }
+    printf("%d %d %d",num, max, max_total); // 결과 출력
+	return 0;
+}

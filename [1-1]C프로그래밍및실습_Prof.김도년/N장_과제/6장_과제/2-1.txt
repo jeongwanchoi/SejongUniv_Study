@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+int main(){
+
+	/* Type or paste your code in this area */
+ int n, m; // 변수 N,M 선언
+    
+    scanf("%d %d", &n, &m); // N,M에 정수 저장
+
+    if (n > m) { // N이 M보다 크면 순서 바꾸기
+        int a = n; //a에 N 대입
+        n = m; // N에 M 대입
+        m = a; // M에 a 대입
+    }
+
+    int max = 0; // 약수의 개수가 가장 큰 수의 약수의 개수 변수 선언
+    int num = 0; //  약수의 개수가 가장 큰 수 변수 선언
+
+    for (int i = n; i <= m; i++) {
+        int count = 0; // 약수의 개수를 계산하는 변수 선언
+        for (int j = 1; j <= i; j++) {
+            if (i % j == 0) { // j가 i의 약수이면
+                count++; // count에 +1 하기
+            }
+        }
+
+        if (count > max) { // count가 max보다 크면
+            max = count; // 약수의 개수가 가장 큰 수의 약수의 개수는 count
+            num = i; // 약수의 개수가 가장 큰 수는 i
+        }
+    }
+
+    printf("%d %d", num, max); // 결과 출력
+
+	return 0;
+}

@@ -1,0 +1,60 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	char X[100], Y[100];
+	
+	int y_count[100];
+	int x_idx = -1, y_idx = -1;
+
+	for (int i = 0;; i++)
+	{
+		char ch;
+		scanf("%c", &ch);
+
+		if (ch != '!')
+		{
+			X[++x_idx] = ch;
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	//X arr 안에 한 value씩
+	//중복 검사 -> Y / N
+	for (int i = 0; i <= x_idx; i++)
+	{
+		//중복 check
+		//X[i] (현재값) in any Y값?
+		int found = 0;
+		for (int j = 0; j <= y_idx; j++)
+		{
+			if (Y[j] == X[i])
+			{
+				//지금의 j값 -> Y와 y_count의 index
+				found = 1;
+				y_count[j]++;
+			}
+		}
+
+		//new one
+		if (!found)
+		{
+			Y[++y_idx] = X[i]; 
+			y_count[y_idx] = 1;
+			//항상 new one 그 다음 중복
+			//++y_idx로 인덱스 크기 하나씩 up
+		}
+	}
+
+	for (int i = y_idx; i >= 0; i--)
+	{
+		printf("%c %d\n", Y[i], y_count[i]);
+	}
+
+	return 0;
+}

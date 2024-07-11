@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	//n : '4'자리 양수
+	int n;
+	scanf("%d", &n);
+	int origin = n;
+
+	//reverse 수 만들기
+	int THO = n / 1000;
+	int HUN = (n % 1000) / 100;
+	int TEN = (n % 100) / 10;
+	int ONE = n % 10;
+
+	int rvs = (ONE * 1000) + (TEN * 100) + (HUN * 10) + (THO);
+
+	(origin > rvs) ? printf("%d", origin - rvs) : printf("%d", rvs - origin);
+
+	return 0;
+}

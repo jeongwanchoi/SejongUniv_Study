@@ -1,0 +1,37 @@
+#include<stdio.h>
+
+int main(){
+
+	/* Type or paste your code in this area */
+int n, prev_number; // 변수 선언
+    int count = 1; // 변수 선언 및 1로 초기화
+    int max_count = 0; // 변수 선언 및 0으로 초기화
+
+    scanf("%d", &n); // N에 정수 저장
+    prev_number = n;  //첫 번째 숫자 초기화
+
+    while (1) {
+        scanf("%d", &n); //N에 정수 저장
+        if (n == 0) // N이 0이면
+        break; // 종료
+
+       
+        if ((n > 0 && prev_number > 0) || (n < 0 && prev_number < 0)) { // 같은 부호이면
+            count++; // 연속 카운트에 +1 하기
+        } else {
+            if (count > max_count) { // 연속 카운트가 최대 카운트보다 크면
+                max_count = count;  // 최대 카운트는 연속 카운트
+            }
+            count = 1; // 카운트를 1로 초기화
+        }
+        prev_number = n; // N을 prev_number에 대입
+    }
+
+    if (count > max_count) { // 연속 카운트가 최대 카운트보다 크면
+        max_count = count; // 최대 카운트는 연속 카운트
+    }
+
+    printf("%d", max_count); // 결과 출력
+  
+	return 0;
+}

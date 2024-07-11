@@ -1,0 +1,46 @@
+#define _CRT_SECURE_NO_WARNINGS // ignoring warning messages
+
+#include <stdio.h>
+
+int main()
+{
+	int arr[100], num = 1, idx = 0; //dec 1 int-arr, 2 int-var
+
+	while (num > 0)
+	{
+		scanf("%d", &num); //input
+
+		//check
+		int dupNum, digit, rvs = 0;
+		dupNum = num;
+		while (dupNum > 0)
+		{
+			digit = dupNum % 10;
+			dupNum /= 10;
+			rvs = rvs * 10 + digit;
+		}
+		//correct
+		if (rvs == num)
+		{
+			arr[idx] = num;
+			idx++;
+		}
+	}
+
+	for (int i = idx - 1; i > 0; i--) //sort descending
+	{
+		for (int j = 0; j < i; j++)
+		{
+			if (arr[j] < arr[j + 1])
+			{
+				int tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+			}
+		}
+	}
+	
+	for (int i = 0; i < idx; i++)	printf("%d ", arr[i]);//print
+
+	return 0;
+}

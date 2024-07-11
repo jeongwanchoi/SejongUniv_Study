@@ -1,0 +1,82 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int N;
+	int m1, m2;
+	scanf("%d %d", &m1, &m2);
+	
+	int X[100];
+	int X_idx = -1;
+
+	while (1)
+	{
+		scanf("%d", &N);
+		if (N <= 0)	break;
+
+		int Y[100];
+		int Y_idx = -1;
+		int edit_n = N;
+		while (edit_n > 0)
+		{
+			int digit = edit_n % 10;
+			edit_n /= 10;
+			Y[++Y_idx] = digit;
+		}
+		if (m1 <= Y_idx)
+		{
+			Y[m1] = -1;
+		}
+		if (m2 <= Y_idx)
+		{
+			Y[m2] = -1;
+		}
+		int num = 0;
+		for (int i = 0; i <= Y_idx; i++)
+		{
+			if (Y[i] == -1)	continue;
+			num = (num * 10) + Y[i];
+		}
+		
+		int rvs = 0;
+		int edit_num = num;
+		while (edit_num > 0)
+		{
+			int digit = edit_num % 10;
+			edit_num /= 10;
+			rvs = rvs * 10 + digit;
+		}
+		if (rvs == num)
+		{
+			X[++X_idx] = N;
+		}
+	}
+
+	for (int i = 0; i <= X_idx - 1; i++)
+	{
+		for (int j = i + 1; j <= X_idx; j++)
+		{
+			if (X[i] < X[j])
+			{
+				int tmp = X[j];
+				X[j] = X[i];
+				X[i] = tmp;
+			}
+		}
+	}
+
+	if (X_idx == -1)
+	{
+		printf("none");
+	}
+	else
+	{
+		for (int i = 0; i <= X_idx; i++)
+		{
+			printf("%d ", X[i]);
+		}
+	}
+	return 0;
+}
