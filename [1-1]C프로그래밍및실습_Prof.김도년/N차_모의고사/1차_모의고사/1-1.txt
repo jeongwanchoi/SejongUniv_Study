@@ -1,0 +1,70 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int a, b, c, d, e;
+	scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
+
+	double avg = (a + b + c + d + e) / 5.0;
+
+	int cnt = 0;
+	if (a < 40)	cnt++;
+	if (b < 40)	cnt++;
+	if (c < 40)	cnt++;
+	if (d < 40)	cnt++;
+	if (e < 40)	cnt++;
+
+	if (avg >= 90)
+	{
+		if (cnt >= 3)
+		{
+			printf("F\n%.2lf", avg);
+		}
+		else
+		{
+			printf("A+\n%.2lf", avg);
+		}
+	}
+	else if (avg >= 75)
+	{
+		if (cnt >= 3)
+		{
+			printf("F\n%.2lf", avg);
+		}
+		else
+		{
+			printf("A\n%.2lf", avg);
+		}
+	}
+	else if (avg >= 65)
+	{
+		if (cnt >= 3)
+		{
+			printf("F\n%.2lf", avg);
+		}
+		else
+		{
+			printf("B+\n%.2lf", avg);
+		}
+	}
+	else if (avg >= 50)
+	{
+		if (cnt >= 3)
+		{
+			printf("F\n%.2lf", avg);
+		}
+		else
+		{
+			printf("B\n%.2lf", avg);
+		}
+	}
+	else
+	{
+		printf("F\n%.2lf", avg);
+	}
+
+
+	return 0;
+}

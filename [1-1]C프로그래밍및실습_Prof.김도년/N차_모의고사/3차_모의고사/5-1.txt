@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+
+int main()
+{
+
+   int i, j, k, N, flag;
+   char ch, X[100], Y[100];
+
+       scanf("%c", &ch);
+       i=0;
+       while (ch!='!') {
+      X[i] = ch;
+          i++;
+          scanf("%c", &ch);
+   }
+
+   N = i;
+   k = 0;
+   for (i=0; i<N; i++) {
+      flag = 0;
+      for (j=0; j<i; j++) {
+         if (X[i] == X[j]) {
+            flag = 1;
+            break;
+         }
+      }
+      if (flag == 0) {
+         Y[k] = X[i];
+         k++;
+      }
+   }
+
+   for (i=k-1; i>=0; i--) {
+      printf("%c", Y[i]);
+   }
+
+   printf("\n");
+}

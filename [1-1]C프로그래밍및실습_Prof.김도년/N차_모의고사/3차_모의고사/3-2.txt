@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main() {
+    int N, M, x[100];
+    int i, j;
+    int cnt = 0, sum = 0, rem = 0;
+    double avg = 0;
+    int Max_x[100], Min_x[100];
+    int Max = 0, Min = 100;
+    
+    scanf("%d %d", &N, &M);
+    
+    for (i = 0; i < N; i++)  scanf("%d", &x[i]);
+    
+    for (i = 0; i < N; i += M) {
+        if (i + M - 1 < N) {
+            sum = 0, Max = 0, Min = 100;
+            for (j = 0; j < M; j++)  sum += x[i + j];
+            avg = (double)sum / M;
+            for (j = 0; j < M; j++) {
+                if (x[i + j] >= avg)  printf(" %d", x[i + j]);
+                if (x[i + j] > Max)  Max = x[i + j];
+                if (x[i + j] < Min)  Min = x[i + j];
+            }
+            Max_x[cnt] = Max;
+            Min_x[cnt] = Min;
+            cnt++;
+        }
+        else {
+            sum = 0, Max = 0, Min = 100;
+            rem = N - i;
+            for (j = 0; j < rem; j++)  sum += x[i + j];
+            avg = (double)sum / rem;
+            for (j = 0; j < rem; j++) {
+                if (x[i + j] >= avg)  printf(" %d", x[i + j]);
+                if (x[i + j] > Max)  Max = x[i + j];
+                if (x[i + j] < Min)  Min = x[i + j];
+            }
+            Max_x[cnt] = Max;
+            Min_x[cnt] = Min;
+            cnt++;
+        }
+    }
+    printf("\n");
+    for (i = 0; i < cnt; i++)  printf(" %d", Max_x[i]);
+    printf("\n");
+    for (i = 0; i < cnt; i++)  printf(" %d", Min_x[i]);
+    return 0;
+}

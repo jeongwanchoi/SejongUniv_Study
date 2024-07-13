@@ -1,0 +1,77 @@
+	#define _CRT_SECURE_NO_WARNINGS
+
+	#include <stdio.h>
+
+	int reverse_num(int N);
+	int is_palindromic(int N);
+	int del_digit(int N, int T);
+
+	int main()
+	{
+		int N, T;
+		scanf("%d %d", &N, &T);
+
+		int result = del_digit(N, T);
+		printf("%d %d %d %d", N, reverse_num(N), is_palindromic(N), result);
+
+		return 0;
+	}
+
+	int reverse_num(int N)
+	{
+		int n = N;
+		int result = 0;
+		while (n > 0)
+		{
+			int digit = n % 10;
+			n /= 10;
+			result = result * 10 + digit;
+		}
+		return result;
+	}
+
+	int is_palindromic(int N)
+	{
+		int rvs = reverse_num(N);
+		if (rvs == N)	return 1;
+		else	return 0;
+	}
+
+	int del_digit(int N, int T)
+	{
+		int arr[9];
+		int arr_idx = -1;
+		int edit_n = N;
+		while (edit_n > 0)
+		{
+			int digit = edit_n % 10;
+			edit_n /= 10;
+			arr[++arr_idx] = digit;
+		}
+		
+		int result = 0;
+		if (is_palindromic(N))
+		{
+			for (int i = arr_idx; i >= 0; i--)
+			{
+				if (i == T - 1 || i == arr_idx - T + 1)	continue;
+				else
+				{
+					result = (result * 10) + arr[i];
+				}
+			}
+		}
+		else
+		{
+			for (int i = arr_idx; i >= 0; i--)
+			{
+				if (i == T - 1)	continue;
+				else
+				{
+					result = (result * 10) + arr[i];
+				}
+			}
+		}
+
+		return result;
+	}

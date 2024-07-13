@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	
+	int rvs = 0;
+	int edit_n = n;
+
+	while (edit_n > 0)
+	{
+		int digit = edit_n % 10;
+		rvs = (rvs * 10) + digit;
+		edit_n /= 10;
+	}
+	
+	//2와 3의 배수 각각 구하기
+	int time_2 = rvs / 2,
+		time_3 = rvs / 3;
+
+	//Method 1 (반복문 활용 방법)
+	/*
+	for (int i = 1; i <= rvs; i++)
+	{
+		if (i % 2 == 0) 
+		{
+			time_2++;
+		}
+		if (i % 3 == 0) //2와 3의 공배수도 3의 배수임.
+		{
+			time_3++;
+		}
+	}*/
+	printf("%d\n", rvs);
+	printf("%d %d", time_2, time_3);
+
+	return 0;
+}

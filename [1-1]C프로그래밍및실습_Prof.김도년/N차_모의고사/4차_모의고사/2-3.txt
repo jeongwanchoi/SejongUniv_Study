@@ -1,0 +1,84 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int reverse_num(int n);
+int del_dupnum(int n);
+
+int main()
+{
+	int n;
+	int max_between = 0;
+	int the_n;
+
+	while (1)
+	{
+		scanf("%d", &n);
+		if (n < 0)
+		{
+			break;
+		}
+		else
+		{
+			int step1 = reverse_num(n);
+			int step2 = del_dupnum(step1);
+			printf(" %d", step2);
+
+			int between = n >= step2 ? n - step2 : step2 - n;
+			if (max_between < between)
+			{
+				the_n = n;
+				max_between = between;
+			}
+		}
+	}
+	printf("\n%d %d", the_n, max_between);
+
+
+	return 0;
+}
+
+int reverse_num(int n)
+{
+	int result = 0;
+	while (n > 0)
+	{
+		int digit = n % 10;
+		n /= 10;
+		result = (result * 10) + digit;
+	}
+	return result;
+}
+
+int del_dupnum(int n)
+{
+	int rvs = 0;
+	while (n > 0)
+	{
+		int digit = n % 10;
+		n /= 10;
+		rvs = (rvs * 10) + digit;
+	}
+
+	int uniq[9];
+	int uniq_idx = -1;
+
+	int result = 0;
+	while (rvs > 0)
+	{
+		int digit = rvs % 10;
+		rvs /= 10;
+
+		int found = 0;
+		for (int i = 0; i <= uniq_idx; i++)
+		{
+			if (digit == uniq[i])	found = 1;
+		}
+		if (!found)
+		{
+			uniq[++uniq_idx] = digit;
+			result = (result * 10) + digit;
+		}
+	}
+	return result;
+}

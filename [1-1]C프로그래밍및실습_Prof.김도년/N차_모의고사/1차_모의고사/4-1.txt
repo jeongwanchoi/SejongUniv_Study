@@ -1,0 +1,48 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	char input_ch;
+	//초기값 설정 중요
+	char ini_cap = 'Z'+1, last_small = 'a'-1;
+
+	while (1)
+	{
+		scanf("%c", &input_ch);
+
+		if (input_ch == '0')
+		{
+			break;
+		}
+		else
+		{
+			if (input_ch >= 'A' && input_ch <= 'Z')
+			{
+				if (ini_cap > input_ch)
+				{
+					ini_cap = input_ch;
+				}
+			}
+			else if (input_ch >= 'a' && input_ch <= 'z')
+			{
+				if (last_small < input_ch)
+				{
+					last_small = input_ch;
+				}
+			}
+		}
+	}
+	//출력
+	if (ini_cap == 'Z' + 1) //소문자만 입력됐을 때
+	{
+		printf("%c", last_small);
+	}
+	else if (last_small == 'a' - 1) //대문자만 입력됐을 때
+	{
+		printf("%c", ini_cap);
+	}
+
+	return 0;
+}

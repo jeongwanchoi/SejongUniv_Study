@@ -1,0 +1,98 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	char ch;
+
+	char x[100];
+	int x_idx = -1;
+	while (1)
+	{
+		scanf("%c", &ch);
+		if (ch == '*')	break;
+		else	x[++x_idx] = ch;
+	}
+
+	char y[100];
+	int y_idx = -1;
+	while (1)
+	{
+		scanf("%c", &ch);
+		if (ch == '*')	break;
+		else	y[++y_idx] = ch;
+	}
+
+	char small_idx;
+	if (x_idx >= y_idx)	small_idx = 'y';
+	else	small_idx = 'x';
+
+	char first;
+	if (small_idx == 'x')
+	{
+		int check_done = 0;
+		for (int i = 0; i <= x_idx; i++)
+		{
+			if (x[i] < y[i])
+			{
+				first = 'x';
+				check_done = 1;
+				break;
+			}
+			else if (x[i] > y[i])
+			{
+				first = 'y';
+				check_done = 1;
+				break;
+			}
+			if (x_idx == i && check_done == 0)
+			{
+				first = 'x';
+				break;
+			}
+		}
+		if (first == 'x')
+		{
+			for (int i = 0; i <= x_idx; i++)	printf("%c", x[i]);
+		}
+		else if (first == 'y')
+		{
+			for (int i = 0; i <= y_idx; i++)	printf("%c", y[i]);
+		}
+	}
+	else if (small_idx == 'y')
+	{
+		int check_done = 0;
+		for (int i = 0; i <= y_idx; i++)
+		{
+			if (x[i] < y[i])
+			{
+				first = 'x';
+				check_done = 1;
+				break;
+			}
+			else if (x[i] > y[i])
+			{
+				first = 'y';
+				check_done = 1;
+				break;
+			}
+			if (y_idx == i && check_done == 0)
+			{
+				first = 'y';
+				break;
+			}
+		}
+		if (first == 'x')
+		{
+			for (int i = 0; i <= x_idx; i++)	printf("%c", x[i]);
+		}
+		else if (first == 'y')
+		{
+			for (int i = 0; i <= y_idx; i++)	printf("%c", y[i]);
+		}
+	}
+
+	return 0;
+}

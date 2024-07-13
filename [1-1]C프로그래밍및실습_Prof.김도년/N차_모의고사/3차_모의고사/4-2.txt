@@ -1,0 +1,56 @@
+#include<stdio.h>
+
+int main(void)
+{
+   int num[20] = { 0 }, x[20] = { 0 }, y[20] = { 0 }, N, r[20] = { 0 };
+   double p_avg[20] = { 0 };//평균
+   char s[20] = "";//학점
+
+   scanf("%d", &N);
+
+   for (int i = 0; i < N; i++) {
+      scanf("%d", &x[i]); // 1차인증
+   }
+
+   for (int i = 0; i < N; i++) {
+      scanf("%d", &y[i]); // 2차인증
+      p_avg[i] = x[i] * 0.4 + y[i] * 0.6; //평균
+   }
+
+   for (int i = 0; i < N; i++) { // ranking
+      for (int j = 0; j < N; j++) {
+         if (p_avg[i] < p_avg[j]) {
+            r[i]++;
+         }
+      }
+   }
+
+   for (int i = 0; i < N; i++) { // 학점부여
+      if (r[i]+1 <= (int)(N * 0.3)) s[i] = 'A';
+      else if (r[i]+1 <= (int)(N * 0.7)) s[i] = 'B';
+      else s[i] = 'F';
+   }
+
+   for (int i = 0; i < N-1; i++) { // 내림차순 정렬
+      for (int j = 0; j < N-i-1; j++) {
+         if (p_avg[j] < p_avg[j+1]) {
+            int temp;// 1차인증, 2차인증 교환
+            temp = x[j + 1]; x[j + 1] = x[j]; x[j] = temp;
+            temp = y[j + 1]; y[j + 1] = y[j]; y[j] = temp;
+            double temp2; // 평균교환, 등위교환
+            temp2 = p_avg[j + 1]; p_avg[j + 1] = p_avg[j]; p_avg[j] = temp2;
+            temp = r[j + 1]; r[j + 1] = r[j]; r[j] = temp;
+            char temp3; // 학점교환, 학번
+            temp3 = s[j + 1]; s[j + 1] = s[j]; s[j] = temp3;
+         }
+      }
+   }
+   // 최종 출력
+   for (int i = 0; i < N; i++) {
+      printf("%d %d %.1lf %d ", x[i], y[i], p_avg[i], r[i] + 1);
+      if (s[i] == 'F' && y[i] >= 60) { s[i] = 'B'; printf("%c\n", 'B'); }
+      else printf("%c\n", s[i]);
+   }
+
+   return 0;
+}

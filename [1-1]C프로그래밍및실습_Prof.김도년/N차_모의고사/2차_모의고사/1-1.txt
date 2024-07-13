@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int edit_n = n;
+	int rvs = 0;
+
+	while (edit_n > 0)
+	{
+		int digit = (edit_n % 10);
+		edit_n /= 10;
+		rvs = (rvs * 10) + digit;
+	}
+
+	int time_2 = rvs / 2, time_3 = rvs / 3;
+	
+	printf("%d", rvs);
+	printf("%d %d", time_2, time_3);
+
+	return 0;
+}

@@ -1,0 +1,102 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int input;
+
+	int enter_CE = 0,
+		enter_SW = 0,
+		enter_DS = 0;
+	
+	int perfect_CE = 0,
+		perfect_SW = 0,
+		perfect_DS = 0;
+	
+	int error = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%d", &input);
+
+		int code1 = input / 10000,
+			code2 = (input % 10000) / 1000,
+			dept_code = (input % 1000) / 100;
+
+		if ((code1 >= 1 && code1 <= 9) && (input % 100) == 0 && (input % 10 == 0) &&
+			(dept_code >= 0 && dept_code <= 5)&&
+			((code1==code2&&code2!=dept_code)||(code2 == dept_code&&dept_code!=code1)||(dept_code==code1&&code1!=code2)))
+		{
+			switch (dept_code)
+			{
+			case 0:
+				printf("CE\n");
+				enter_CE++;
+				if (!error)
+				{
+					perfect_CE++;
+				}
+				error = 0;
+				break;
+			case 1:
+				printf("CE\n");
+				enter_CE++;
+				if (!error)
+				{
+					perfect_CE++;
+				}
+				error = 0;
+				break;
+			case 2:
+				printf("CE\n");
+				enter_CE++;
+				if (!error)
+				{
+					perfect_CE++;
+				}
+				error = 0;
+				break;
+			case 3:
+				printf("SW\n");
+				enter_SW++;
+				if (!error)
+				{
+					perfect_SW++;
+				}
+				error = 0;
+				break;
+			case 4:
+				printf("SW\n");
+				enter_SW++;
+				if (!error)
+				{
+					perfect_SW++;
+				}
+				error = 0;
+				break;
+			case 5:
+				printf("DS\n");
+				enter_DS++;
+				if (!error)
+				{
+					perfect_DS++;
+				}
+				error = 0;
+				break;
+			}
+		}
+		else
+		{
+			error = 1;
+			printf("none\n");
+		}
+	}
+	printf("%d %d %d\n", enter_CE, enter_SW, enter_DS);
+	printf("%d %d %d", perfect_CE, perfect_SW, perfect_DS);
+
+	return 0;
+}

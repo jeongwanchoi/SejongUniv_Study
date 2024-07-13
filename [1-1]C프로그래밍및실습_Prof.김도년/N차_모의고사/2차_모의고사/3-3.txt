@@ -1,0 +1,79 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int cnt = 0, max_cnt = 0;
+	int prime;
+	int last_prime;
+
+	int is_last = 0;
+	int is_firInput = 1;
+	
+	int max, min;
+
+	for (int i = 0; i < n; i++)
+	{
+		if (i == n - 1)	is_last = 1;
+		
+		int num;
+		scanf("%d", &num);
+
+		if (is_firInput)
+		{
+			is_firInput = 0;
+			max = num;
+			min = num;
+		}
+		if (max < num)	max = num;
+		if (min > num)	min = num;
+
+		int found = 0;
+		for (int j = 2; j < num; j++)
+		{
+			if (num % j == 0)	found = 1;
+		}
+		if (num <= 1)	found = 1;
+		if (num >= 100)	found = 1;
+
+		if (!found)
+		{
+			cnt++;
+			prime = num;
+		}
+		else
+		{
+			if (max_cnt < cnt)
+			{
+				max_cnt = cnt;
+				last_prime = prime;
+			}
+			cnt = 0;
+		}
+	}
+	if (is_last)
+	{
+		if (max_cnt < cnt)
+		{
+			max_cnt = cnt;
+			last_prime = prime;
+		}
+	}
+
+	if (max_cnt == 0)
+	{
+		printf("0\n");
+		printf("%d %d", max, min);
+	}
+	else
+	{
+		printf("%d\n%d\n", max_cnt, last_prime);
+		printf("%d %d", max, min);
+	}
+
+	return 0;
+}

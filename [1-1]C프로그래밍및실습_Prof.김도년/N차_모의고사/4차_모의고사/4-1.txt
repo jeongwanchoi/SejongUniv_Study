@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int reverse_num(int N);
+int is_equal(int N, int M);
+
+int main()
+{
+	int N;
+	scanf("%d", &N);
+
+	int M = reverse_num(N);
+	int val = is_equal(N, M);
+	printf("%d %d %d", N, M, val);
+
+	return 0;
+}
+
+int reverse_num(int N)
+{
+	int n = N;
+	int result = 0;
+	while (n > 0)
+	{
+		int digit = n % 10;
+		n /= 10;
+		result = result * 10 + digit;
+	}
+	return result;
+}
+
+int is_equal(int N, int M)
+{
+	int n = N;
+	int m = M;
+
+	if (n == m)	return 1;
+	else	return 0;
+}

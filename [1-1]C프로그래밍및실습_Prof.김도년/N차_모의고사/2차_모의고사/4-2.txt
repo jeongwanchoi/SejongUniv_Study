@@ -1,0 +1,67 @@
+#pragma warning(disable:4996)
+#include <stdio.h>
+
+int main() {
+    char C1, C2, T1, T2, T3;
+    char last1, last2, last3;
+    int found = 0;
+    int words = 0;  // 조건을 만족하는 단어가 있는지 여부
+
+    // 입력받기
+    scanf(" %c%c-%c%c%c", &C1, &C2, &T1, &T2, &T3);
+
+    // C1과 C2 사이의 모든 가능한 단어 생성
+    for (char i = C1; i <= C2; i++) {
+        for (char j = C1; j <= C2; j++) {
+            for (char k = C1; k <= C2; k++) {
+
+                // 세 문자가 모두 같지 않아야 함
+                if (i == j && j == k) continue;
+
+                // 두 번째 문자는 모음이어야 함
+                if (!(j == 'a' || j == 'e' || j == 'i' || j == 'o' || j == 'u')) continue;
+
+                // ★★ 세 문자의 중간값 찾기
+                char min_char, max_char, mid_char;
+                if (i < j) {
+                    if (j < k) { min_char = i; mid_char = j; max_char = k; }
+                    else if (i < k) { min_char = i; mid_char = k; max_char = j; }
+                    else { min_char = k; mid_char = i; max_char = j; }
+                }
+                else {
+                    if (i < k) { min_char = j; mid_char = i; max_char = k; }
+                    else if (j < k) { min_char = j; mid_char = k; max_char = i; }
+                    else { min_char = k; mid_char = j; max_char = i; }
+                }
+
+                // 두 번째 문자가 중간값이 아니면 continue
+                if (j != mid_char) continue;
+
+                // 단어 출력
+                printf("%c%c%c\n", i, j, k);
+                words = 1;  // 조건을 만족하는 단어가 있음
+
+                // ★ T보다 사전 순서상 빠른 단어 찾기
+                if (i < T1 || (i == T1 && j < T2) || (i == T1 && j == T2 && k < T3)) {
+                    last1 = i;
+                    last2 = j;
+                    last3 = k;
+                    found = 1;
+                }
+            }
+        }
+    }
+
+    if (!words) {
+        printf("none\n");
+    }
+
+    if (found) {
+        printf("%c%c%c\n", last1, last2, last3);
+    }
+    else {
+        printf("none\n");
+    }
+
+    return 0;
+}

@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int i, j, N, x[20], r[20];
+    char s[20] = "";
+
+    scanf("%d", &N);
+    for (i = 0; i < N; i++) {
+        scanf("%d", &x[i]);
+    }
+
+    // r 배열을 1로 초기화
+    for (i = 0; i < N; i++) {
+        r[i] = 1;
+    }
+
+    // 순위 계산
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            if (x[i] < x[j]) {
+                r[i]++;
+            }
+        }
+    }
+    
+    // 등급 부여
+    for (i = 0; i < N; i++) {
+        if (r[i] <= (int)(N * 0.3)) s[i] = 'A';
+        else if (r[i] <= (int)(N * 0.7)) s[i] = 'B';
+        else s[i] = 'F';
+    }
+
+    // 결과 출력
+    for (i = 0; i < N; i++) {
+        printf("%d %d %c\n", x[i], r[i], s[i]);
+    }
+
+    return 0;
+}

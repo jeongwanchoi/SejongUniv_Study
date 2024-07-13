@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int input_id;
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%d", &input_id);
+
+		int fir_code = input_id / 10000;
+		int sec_code = (input_id / 1000) % 10;
+		int dept_code = (input_id / 100) % 10;
+
+		if (fir_code >= 1 && fir_code <= 9 &&
+			(input_id % 10) == 0 && (input_id % 100) == 0 &&
+			dept_code >= 0 && dept_code <= 5&&
+			((fir_code == sec_code && sec_code != dept_code) || (sec_code == dept_code && dept_code != fir_code) || (dept_code == fir_code && fir_code != sec_code)))
+		{
+			switch (dept_code)
+			{
+			case 0:
+				printf("CE\n");
+				break;
+			case 1:
+				printf("CE\n");
+				break;
+			case 2:
+				printf("CE\n");
+				break;
+			case 3:
+				printf("SW\n");
+				break;
+			case 4:
+				printf("SW\n");
+				break;
+			case 5:
+				printf("DS\n");
+				break;
+			}
+		}
+			
+		else
+		{
+			printf("none\n");
+		}
+	}
+
+	return 0;
+}

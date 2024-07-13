@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	char x[100];
+	char ch;
+	int x_idx = -1;
+
+	while (1)
+	{
+		scanf("%c", &ch);
+		if (ch == '*')	break;
+		else if (ch >= 'A' && ch <= 'Z')
+		{
+			x[++x_idx] = ch - 'A' + 'a';
+		}
+		else if (ch >= 'a' && ch <= 'z')
+		{
+			x[++x_idx] = ch - 'a' + 'A';
+		}
+	}
+	for (int i = 0; i <= x_idx; i++)	printf("%c", x[i]);
+	printf("\n");
+
+	int cnt = 0;
+	for (int i = 0; i <= x_idx - 2; i++)
+	{
+		if ((x[i] >= 'A' && x[i] <= 'Z'&&(x[i]!='A'&&x[i]!='E'&& x[i] != 'I'&& x[i] != 'O'&& x[i] != 'U')) &&
+			(x[i + 1] == 'a' || x[i + 1] == 'e' || x[i + 1] == 'i' || x[i + 1] == 'o' || x[i + 1] == 'u') &&
+			x[i + 2] >= 'a' && x[i + 2] <= 'z'&&(x[i+2] != 'a'&& x[i + 2] != 'e'&& x[i + 2] != 'i'&& x[i + 2] != 'o'&& x[i + 2] != 'u'))
+		{
+			cnt++;
+		}
+	}
+	printf("%d", cnt);
+
+	return 0;
+}
