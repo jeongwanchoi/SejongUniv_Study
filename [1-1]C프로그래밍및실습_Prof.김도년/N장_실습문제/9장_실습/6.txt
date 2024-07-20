@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	char ch[10], * p = ch;
+	int cnt[10], * c = cnt;
+	int max_cnt = 0;
+
+	for (p = ch; p < ch + 10; p++)	scanf("%c", p);
+
+	for (p = ch, c = cnt; p < ch + 10; p++, c++)
+	{
+		*c = 0;
+		for (char* q = ch; q < ch + 10; q++)
+		{
+			if (*p == *q)
+			{
+				(*c)++;
+			}
+		}
+		if (max_cnt < *c)	max_cnt = *c;
+	}
+	for (p = ch, c = cnt; p < ch + 10; p++, c++)
+	{
+		if (*c == max_cnt)
+		{
+			printf("%c %d", *p, *c);
+			break;
+		}
+	}
+
+	return 0;
+}

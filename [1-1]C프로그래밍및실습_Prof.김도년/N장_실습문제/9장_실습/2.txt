@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	char ch[20];
+	char* pch = ch;
+	char c;
+	int ch_idx = -1;
+
+	for (int i = 0; i < 20; i++)
+	{
+		scanf("%c", &c);
+		if (c == '#')	break;
+		*(pch + i) = c;
+		ch_idx = i;
+	}
+
+	for (int i = ch_idx; i >= 0; i--)
+	{
+		printf("%c", *(pch + i));
+	}
+
+	return 0;
+}

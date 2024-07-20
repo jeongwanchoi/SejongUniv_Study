@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int* mid(int num[]);
+int main()
+{
+	int num[3];
+	int* pnum = num;
+	for (pnum = num; pnum < num + 3; pnum++)
+	{
+		scanf("%d", pnum);
+	}
+
+	int* pmedian = mid(num);
+	printf("%d", *pmedian);
+
+	return 0;
+}
+
+int* mid(int num[])
+{
+	//아래 조건문을 가시성 좋게 표현하기 위함
+	//로컬 변수이기 때문에 num배열 원소의 주소를 직접 리턴!!
+	int a = num[0];
+	int b = num[1];
+	int c = num[2];
+
+	if ((a >= b && a <= c) || (a >= c && a <= b))
+		return &num[0];
+	else if ((b >= a && b <= c) || (b >= c && b <= a))
+		return &num[1];
+	else
+		return &num[2];
+}

@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+void strcopy(char a[], char b[]);
+int main()
+{
+	char a[6], b[6];
+	char* pa = a, * pb = b;
+
+	for (int i = 0; i < 6; i++)	scanf("%c", pa+i);
+
+	strcopy(a, b);
+	for (int i = 0; i < 6; i++)	printf("%c", *(pb + i));
+	return 0;
+}
+void strcopy(char a[], char b[])
+{
+	char* pa = a;
+	char* pb = b;
+	for (int i = 0; i < 6; i++)
+	{
+		*(pb + i) = *(pa + i);
+	}
+}

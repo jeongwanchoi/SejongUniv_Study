@@ -1,0 +1,42 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+void gcdlcm(int a, int b, int* pgcd, int*plcm);
+int main()
+{
+	int a, b;
+	scanf("%d %d", &a, &b);
+	
+	int gcd, lcm;
+	int* pgcd = &gcd, *plcm = &lcm;
+	gcdlcm(a, b, pgcd, plcm);
+	printf("%d %d", gcd, lcm);
+
+	return 0;
+}
+void gcdlcm(int a, int b, int* pgcd, int* plcm)
+{
+	int big = a >= b ? a : b;
+	int small = a >= b ? b : a;
+	
+	//get gcd
+	for (int i = small; i >= 1; i--)
+	{
+		if (big % i == 0 && small % i == 0)
+		{
+			*pgcd = i;
+			break;
+		}
+	}
+
+	//get lcm
+	for (int i = big;; i++)
+	{
+		if (i % big == 0 && i % small == 0)
+		{
+			*plcm = i;
+			break;
+		}
+	}
+}

@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int arr[5];
+	for (int* p = arr; p < arr + 5; p++)	scanf("%d", p);
+
+	int rank[5];
+	for (int* p = arr, *r = rank; p < arr + 5; p++, r++)
+	{
+		*r = 1;
+		for (int* q = arr; q < arr + 5; q++)
+		{
+			if (*p < *q)	(*r)++;
+		}
+	}
+	for (int* p = arr, *r = rank; p < arr + 5; p++, r++)	printf("%d=r%d ", *p, *r);
+
+	return 0;
+}
