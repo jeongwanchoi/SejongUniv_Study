@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int a, b;
+
+	int sum = 0;
+	while (1)
+	{
+		scanf("%d %d", &a, &b);
+		if (a <= 0 || b <= 0)	break;
+
+		int mul = 1;
+		for (int i = 1; i <= b; i++)
+		{
+			mul *= a;
+		}
+
+		sum += mul;
+	}
+	printf("%d", sum);
+
+	return 0;
+}

@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    scanf("%d", &N);
+    int N1 = N;
+    
+    for (int i = 2; i * i <= N; i++) {
+        int k = 0;
+        while (N1 % i == 0) {
+                N1 /= i;
+                k++;
+        }
+        if (k > 0)  printf("%d %d\n", i, k);
+    }
+    return 0;
+}

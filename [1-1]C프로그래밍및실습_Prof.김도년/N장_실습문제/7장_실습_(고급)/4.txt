@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS // ignoring warning messages
+
+#include <stdio.h>
+
+int main()
+{
+	int arr[15], oneCnt = 0, twoCnt = 0, threeCnt = 0; //dec 1 int-arr, 3 in-var
+
+	for (int i = 0; i < 10; i++)	scanf("%d", &arr[i]); //input
+
+	for (int i = 0; i < 10; i++) //count
+	{
+		if (arr[i] == 1)	oneCnt++;
+		else if (arr[i] == 2)	twoCnt++;
+		else if (arr[i] == 3)	threeCnt++;
+	}
+	
+	//print
+	printf("1:");
+	for (int i = 0; i < oneCnt; i++)	printf("*");
+	printf("\n");
+
+	printf("2:");
+	for (int i = 0; i < twoCnt; i++)	printf("*");
+	printf("\n");
+
+	printf("3:");
+	for (int i = 0; i < threeCnt; i++)	printf("*");
+	printf("\n");
+
+	return 0;
+}

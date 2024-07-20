@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void) {
+   char x[6][5] = { {'Z', 'E', 'R', 'O', '-'}, {'O', 'N', 'E', '-', '-'}, {'T','W','O','-','-'}, {'T','H', 'R', 'E', 'E'}, {'F','O', 'U', 'R','-'},{'F','I','V','E','-'} };
+   int a[3]; // 입력받을 배열
+
+   scanf("%d %d %d", &a[0], &a[1], &a[2]); // 입력
+
+   for (int i = 0; i < 3; i++) { // 입력받은 배열 반복문
+      if (a[i] == 0) { // 0이면
+         for (int j = 0; j<5; j++){ // 반복
+            printf("%c", x[0][j]);
+         }
+
+         printf("\n"); // 줄바꿈
+      } 
+      else if (a[i] == 1) { // 1이면
+         for (int j = 0; j < 5; j++) {
+            printf("%c", x[1][j]);
+         }
+
+         printf("\n");
+      }
+      else if (a[i] == 2) { // 2면
+         for (int j = 0; j < 5; j++) { // 위와 같음
+            printf("%c", x[2][j]);
+         }
+
+         printf("\n");
+      }
+      else if (a[i] == 3) { // 3이면
+         for (int j = 0; j < 5; j++) {
+            printf("%c", x[3][j]);
+         }
+
+         printf("\n");
+      }
+      else if (a[i] == 4) { // 4면
+         for (int j = 0; j < 5; j++) {
+            printf("%c", x[4][j]);
+         }
+
+         printf("\n");
+      }
+      else if (a[i] == 5) { // 5면
+         for (int j = 0; j < 5; j++) {
+            printf("%c", x[5][j]);
+         }
+
+         printf("\n"); // 줄바꿈
+      }
+   }
+}

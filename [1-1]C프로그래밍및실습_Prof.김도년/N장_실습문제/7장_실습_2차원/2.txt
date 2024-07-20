@@ -1,0 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void) {
+   int a[3][2]; // 2차원 배열과 더한 결과
+
+   for (int i = 0; i < 3; i++) { // 입력받음 동시에
+      int sum = 0; // 변수 초기화
+
+      for (int j = 0; j < 2; j++) { 
+         scanf("%d", &a[i][j]); // 입력
+
+         sum += a[i][j]; // 점수 더한 값
+      }
+
+      printf("%d\n", sum); // 출력
+   }
+}

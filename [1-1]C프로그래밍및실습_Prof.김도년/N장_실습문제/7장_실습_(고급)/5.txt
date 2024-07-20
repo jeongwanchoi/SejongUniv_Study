@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS // ignoring warning messages
+
+#include <stdio.h>
+
+int main()
+{
+	char arr[10]; //dec 1 int-arr
+
+	for (int i = 0; i < 5; i++)	scanf("%c", &arr[i]); //input
+
+	for (int i = 5; i > 0; i--) //print
+	{
+		for (int j = i; j < 5; j++)	printf("%c", arr[j]);
+		for (int j = 0; j < i; j++)	printf("%c", arr[j]);
+		printf("\n");
+	}
+
+	return 0;
+}

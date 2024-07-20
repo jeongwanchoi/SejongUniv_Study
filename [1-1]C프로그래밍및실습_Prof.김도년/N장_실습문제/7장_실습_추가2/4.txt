@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int N;
+	scanf("%d", &N);
+
+	int arr[100];
+	for (int i = 0; i < N; i++)	scanf("%d", &arr[i]);
+
+	int n, m;
+	scanf("%d %d", &n, &m);
+
+	int edit_arr[100];
+	int edit_idx = -1;
+	int sel_idx = n-1;
+	for (int i = 0; i < N; i++)
+	{
+		if (i >= sel_idx && i <= sel_idx + m - 1)	continue;
+		edit_arr[++edit_idx] = arr[i];
+	}
+
+	for (int i = edit_idx; i >= 0; i--)
+	{
+		printf(" %d", edit_arr[i]);
+	}
+}

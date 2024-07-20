@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int edit_n = n;
+	int mul = 1;
+	while (edit_n > 0)
+	{
+		int digit = edit_n % 10;
+		mul *= digit;
+		edit_n /= 10;
+	}
+	printf("%d", mul);
+
+
+	return 0;
+}

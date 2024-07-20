@@ -1,0 +1,38 @@
+#define _CRT_SECURE_NO_WARNINGS // ignoring warning messages
+
+#include <stdio.h>
+
+int main()
+{
+	int arr[10], max = 0, nextMax = 0; //dec 1 int-arr, 2 int-var
+
+	for (int i = 0; i < 5; i++)	scanf("%d", &arr[i]); //input
+
+	if (arr[0] >= arr[1]) //random set
+	{
+		max = arr[0];
+		nextMax = arr[1];
+	}
+	else
+	{
+		max = arr[1];
+		nextMax = arr[0];
+	}
+
+	for (int i = 2; i < 5; i++) // get max, nextMax | start from 3rd index
+	{
+		if (arr[i] > max) //get max -> naturally get nextMax | assign nextMax value to max value 
+		{
+			nextMax = max;
+			max = arr[i];
+		}
+		else if (nextMax < arr[i]) // get nextMax | cases (nextMax < arr[i] < max)
+		{
+			nextMax = arr[i];
+		}
+	}
+
+	printf("%d\n%d", max, nextMax); //print
+
+	return 0;
+}

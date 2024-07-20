@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int N;
+	scanf("%d", &N);
+
+	if (N < 50)
+	{
+		printf(" 0 %d", N / 10);
+	}
+	else
+	{
+		for (int i = 1; i <= N / 50; i++)
+		{
+			printf(" %d %d\n", i, (N - (50 * i)) / 10);
+		}
+	}
+}

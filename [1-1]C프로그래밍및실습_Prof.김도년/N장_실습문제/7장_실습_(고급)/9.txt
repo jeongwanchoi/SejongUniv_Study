@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS // ignoring warning messages
+
+#include <stdio.h>
+
+int main()
+{
+	int num[10]; //dec 1 int-arr
+
+	for (int i = 0; i < 5; i++)	scanf("%d", &num[i]); //input
+
+	for (int j = 4; j > 0; j--) //sort
+	{
+		for (int i = 0; i < j; i++) 
+		{
+			if (num[i] > num[i + 1])
+			{
+				int tmp;
+
+				tmp = num[i];
+				num[i] = num[i + 1];
+				num[i + 1] = tmp;
+			}
+		}
+	}
+
+	for (int i = 0; i < 5; i++)	printf("%d\n", num[i]); //print
+
+	return 0;
+}

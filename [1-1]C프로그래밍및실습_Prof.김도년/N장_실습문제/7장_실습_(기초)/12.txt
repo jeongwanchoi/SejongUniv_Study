@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	double arr[10];
+	for (int i = 0; i < 10; i++)	scanf("%lf", &arr[i]);
+
+	int cnt[10] = { 0 };
+	int cnt_size = -1;
+	for (int i = 0; i < 10; i++)
+	{
+		cnt_size++;
+		for (int j = 0; j < 10; j++)
+		{
+			if (arr[i] > arr[j])	cnt[cnt_size]++;
+		}
+	}
+	
+	for (int i = 0; i <= cnt_size; i++)
+	{
+		printf(" %d", cnt[i]);
+	}
+
+	return 0;
+}

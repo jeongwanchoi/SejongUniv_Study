@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int arr[15];
+	for (int i = 0; i < 10; i++)	scanf("%d", &arr[i]);
+
+	int uniq[15];
+	int uniq_idx = -1;
+	for (int i = 0; i < 10; i++)
+	{
+		int found = 0;
+		for (int j = 0; j <= uniq_idx; j++)
+		{
+			if (uniq[j] == arr[i])	found = 1;
+		}
+
+		if (!found)
+		{
+			uniq[++uniq_idx] = arr[i];
+		}
+	}
+
+	for (int i = 0; i <= uniq_idx; i++)
+	{
+		printf(" %d", uniq[i]);
+	}
+
+	return 0;
+}

@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int a, b;
+	scanf("%d %d", &a, &b);
+
+	int rvs_a = 0, rvs_b = 0;
+	while (a > 0)
+	{
+		int digit = a % 10;
+		rvs_a = (rvs_a * 10) + digit;
+		a /= 10;
+	}
+	while (b > 0)
+	{
+		int digit = b % 10;
+		rvs_b = (rvs_b * 10) + digit;
+		b /= 10;
+	}
+
+	if (rvs_a >= rvs_b)
+	{
+		printf("%d", rvs_a - rvs_b);
+	}
+	else
+	{
+		printf("%d", rvs_b - rvs_a);
+	}
+
+	return 0;
+}

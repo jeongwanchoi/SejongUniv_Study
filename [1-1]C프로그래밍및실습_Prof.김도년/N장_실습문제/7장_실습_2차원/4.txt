@@ -1,0 +1,46 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void) {
+    int x[3][3];  
+    int y[2][2]; // 2차원 배열
+    int i, j;
+
+    for (i = 0; i < 3; i++) { // 이중 for문 사용해 입력받음 
+        for (j = 0; j < 3; j++) {
+            scanf("%d", &x[i][j]);
+            printf(" %d", x[i][j]); // 출력
+        }
+
+        printf("\n");
+    }
+
+    for (i = 0; i < 2; i++) { // 이중 for문 사용해 입력받음
+        for (j = 0; j < 2; j++) {
+            scanf("%d", &y[i][j]);
+            printf(" %d", y[i][j]); // 출력
+        }
+
+        printf("\n");
+    }
+
+    int key = 0; // 판별 문자
+    for (i = 0; i < 2; i++) {  
+        for (j = 0; j < 2; j++) {  // 인덱스 생각해서 숫자 설정
+            if (x[i][j] == y[0][0] && x[i][j + 1] == y[0][1] &&
+                x[i + 1][j] == y[1][0] && x[i + 1][j + 1] == y[1][1]) {
+                key = 1; // 발견
+                break;
+            }
+        }
+
+        if (key) { // 찾은 경우
+            printf("%d %d", i, j);
+            break; // 탈출
+        }
+    }
+
+    if (key != 1) { // 없는 경우
+        printf("none\n"); // 출력
+    }
+}

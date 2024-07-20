@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS // ignoring warning messages
+
+#include <stdio.h>
+
+int main()
+{
+	int num[10], edit[10], rank[10]; //dec 3 int-arr
+
+	for (int i = 0; i < 5; i++)	scanf("%d", &num[i]); //input
+	for (int i = 0; i < 5; i++)	edit[i] = num[i]; //copy
+
+	for (int i = 4; i > 0; i--) //sort
+	{
+		for (int j = 0; j < i; j++)
+		{
+			if (edit[j] < edit[j + 1])
+			{
+				int tmp = edit[j];
+				edit[j] = edit[j + 1];
+				edit[j + 1] = tmp;
+			}
+		}
+	}
+
+	for (int i = 0; i < 5; i++) //mark rank
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			if (num[i] == edit[j])
+			{
+				if (j != 0 && edit[j] == edit[j - 1])	continue;
+				rank[i] = j + 1;
+			}
+		}
+	}
+
+	for (int i = 0; i < 5; i++)	printf("%d=r%d ", num[i], rank[i]); //print
+	
+	return 0;
+}

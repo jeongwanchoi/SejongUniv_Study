@@ -1,0 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS // ignoring warning messages
+
+#include <stdio.h>
+
+int main()
+{
+	int arr[10], sum = 0; //dec 1 int-arr, 1 int-var
+	double avg; //dec double-var
+
+	for (int i = 0; i < 5; i++)	scanf("%d", &arr[i]); //input
+
+	for (int i = 0; i < 5; i++)	sum += arr[i]; //get sum
+	avg = sum / 5; //get avg
+
+	for (int i = 0; i < 5; i++)	if (arr[i] > avg)	printf("%d\n", arr[i]); //print only values bigger than avg
+
+	return 0;
+}

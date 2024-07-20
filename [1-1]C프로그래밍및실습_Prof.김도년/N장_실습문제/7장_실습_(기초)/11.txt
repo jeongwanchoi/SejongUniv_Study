@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	double arr[10];
+	for (int i = 0; i < 10; i++)	scanf("%lf", &arr[i]);
+
+	double min = arr[0];
+	for (int i = 0; i < 10; i++)
+	{
+		if (min > arr[i])
+		{
+			min = arr[i];
+		}
+	}
+	printf("%.1lf", min);
+
+
+	return 0;
+}

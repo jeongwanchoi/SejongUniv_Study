@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	int arr1[100], arr2[100];
+
+	scanf("%d", &n);
+	for (int i = 0; i < n; i++)	scanf("%d", &arr1[i]);
+	for (int i = 0; i < n; i++)	scanf("%d", &arr2[i]);
+
+	int uniq1[100];
+	int uniq1_idx = -1;
+
+	for (int i = 0; i < n; i++)
+	{
+		int found = 0;
+		for (int j = 0; j < n; j++)
+		{
+			if (arr1[i] == arr2[j])	found = 1;
+		}
+		if (!found)
+		{
+			uniq1[++uniq1_idx] = arr1[i];
+		}
+	}
+
+	for (int i = 0; i <= uniq1_idx; i++)
+	{
+		printf(" %d", uniq1[i]);
+	}
+}

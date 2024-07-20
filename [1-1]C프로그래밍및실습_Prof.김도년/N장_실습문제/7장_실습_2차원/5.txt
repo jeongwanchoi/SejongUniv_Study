@@ -1,0 +1,29 @@
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+int arrsum(int x[], int S, int E); // 원형
+
+int main(void) {
+    int N, S, E; // 입력받을 수
+
+    scanf("%d %d %d", &N, &S, &E); // 변수
+
+    int a[100]; // 배열
+
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &a[i]); // 입력
+    }
+
+    int sum = arrsum(a, S, E); // 합 계산
+    printf("%d", sum);
+}
+
+int arrsum(int x[], int S, int E) { // 함수
+    int sum = 0;
+
+    for (int i = S; i <= E; i++) {
+        sum += x[i]; // 합 계산
+    }
+
+    return sum; // 반환
+}
