@@ -1,0 +1,10 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	printf("My birthday is month 3 date 5.");
+
+	return 0;
+}

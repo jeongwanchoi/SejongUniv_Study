@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main()
+{
+	printf("The double quotation mark is \".\nThe single quotation mark is \'.\nCharacter A is \'A\'.\nTo represent a double quotation mark, use the escape sequence \\\"."); //출력
+
+	return 0; //리턴 0
+}

@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{
+	int a; //정수형 변수 a선언
+	unsigned char b; // unsigned 문자형 b선언
+
+	scanf("%d", &a); //a출력받음
+
+	b = a; //b에 a 복사 형변환
+	b = (int)b; //b int형으로 변환
+
+	printf("(int->int) %d\n", a); //a출력
+	printf("(int->unsigned char->int) %d", b); //b출력
+
+	return 0; //리턴 0
+}

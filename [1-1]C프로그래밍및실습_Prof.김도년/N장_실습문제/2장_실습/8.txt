@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+	int n; //정수형 변수 n선언
+
+	scanf("%d", &n); //n 입력받음
+
+	printf("The %dth upper case letter in the English alphabet is %c.", n, 'A' + n); //n번째 대문자 출력
+
+	return 0; //리턴 0
+}

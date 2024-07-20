@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <math.h> //math.h. 불러오기
+
+int main()
+{
+	double a; //실수형 변수 a 선언
+	int b; //정수형 변수 b 선언
+
+	scanf("%lf", &a); //a 입력받음
+
+	b = (int)round(a); //a 반올림하고 정수형 형변환 후 정수형 변수 b에 저장
+
+	printf("rounded up to %d", b); //b출력
+
+	return 0; //리턴 0
+}

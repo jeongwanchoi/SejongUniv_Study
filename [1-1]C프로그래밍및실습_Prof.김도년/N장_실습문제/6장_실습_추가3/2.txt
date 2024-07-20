@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int copy_n = n;
+	
+	//2부터n까지 모든 수 중
+	for (int i = 2; i <= n; i++)
+	{
+		//소수찾기
+		int found = 0;
+		for (int j = 2; j < i; j++)
+		{
+			if (i % j == 0)	found = 1;
+		}
+		if (!found) //소수일 경우
+		{
+			//나머지가 0일 때까지 소인수 분해
+			while (copy_n % i == 0)
+			{
+				printf(" %d", i);
+				copy_n /= i;
+			}
+		}
+	}
+
+	return 0;
+}

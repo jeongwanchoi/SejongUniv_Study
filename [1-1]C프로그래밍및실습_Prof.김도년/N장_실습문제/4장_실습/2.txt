@@ -1,0 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int time;
+	scanf("%d", &time);
+
+	int h = time / 3600;
+	int m = (time % 3600) / 60;
+	int s = time % 60;
+
+	printf("%d:%d:%d", h, m, s);
+
+	return 0;
+}

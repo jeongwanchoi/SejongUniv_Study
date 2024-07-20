@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main()
+{
+	int p1, p2, p3;
+
+	scanf("%d %d %d", &p1, &p2, &p3);
+
+	printf("purchase 1: %5d won\n", p1);
+	printf("purchase 2: %5d won\n", p2);
+	printf("purchase 3: %5d won", p3);
+
+	return 0; //리턴 0
+}

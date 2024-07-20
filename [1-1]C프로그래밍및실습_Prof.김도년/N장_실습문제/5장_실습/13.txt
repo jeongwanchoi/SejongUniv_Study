@@ -1,0 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int kor, eng, math;
+	scanf("%d %d %d", &kor, &eng, &math);
+
+	double avg = (kor + eng + math) / 3.0;
+	// cf)
+	// smth / 3 -> 정수 나눗셈, 몫.00으로 저장됨
+	// smth / 3.0 -> 실수 나눗셈, 몫.xx으로 소수점 뒷자리 살려서 저장
+
+	char grade;
+	if (avg >= 75)	grade = 'A';
+	else if (avg >= 50)	grade = 'B';
+	else	grade = 'F';
+
+	printf("%.2lf\n", avg);
+	printf("%c", grade);
+
+	return 0;
+}

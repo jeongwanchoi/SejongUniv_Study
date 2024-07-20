@@ -1,0 +1,39 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	double F;
+	scanf("%lf", &F);
+
+	double input;
+	double dist_min = 0;
+	double result;
+
+	int first_input = 1;
+	while (1)
+	{
+		scanf("%lf", &input);
+		if (input <= 1.0)	break;
+
+		double dist = F >= input ? F - input : input - F;
+		if (first_input)
+		{
+			dist_min = dist;
+			result = input;
+			first_input = 0;
+		}
+		else
+		{
+			if (dist_min > dist)
+			{
+				dist_min = dist;
+				result = input;
+			}
+		}
+	}
+	printf("%.2lf", result);
+
+	return 0;
+}

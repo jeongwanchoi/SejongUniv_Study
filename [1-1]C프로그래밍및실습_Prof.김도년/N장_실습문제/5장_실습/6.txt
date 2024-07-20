@@ -1,0 +1,53 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int a, b, c;
+
+	scanf("%d %d %d", &a, &b, &c);
+
+	int max = a, min = a;
+
+	if (max < b)
+	{
+		if (b < c)
+		{
+			max = c;
+		}
+		else
+		{
+			max = b;
+		}
+	}
+	else // max >= b
+	{
+		if (max < c)
+		{
+			max = c;
+		}
+	}
+
+	if (min > b)
+	{
+		if (b > c)
+		{
+			min = c;
+		}
+		else
+		{
+			min = b;
+		}
+	}
+	else // min <= b
+	{
+		if (min > c)
+		{
+			min = c;
+		}
+	}
+	printf("%d %d", max, min);
+
+	return 0;
+}

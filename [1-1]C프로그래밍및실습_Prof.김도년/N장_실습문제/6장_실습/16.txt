@@ -1,0 +1,21 @@
+#define _CTR_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+
+int main() { //1
+   int n, i, j;
+   int cnt = 0;
+   scanf("%d", &n);
+   for (i = 1; i <= n; i++) {//2
+      j = i;
+      while (j > 0) {//3
+         if (j % 10 == 3) {//4
+            cnt += 1;
+         }//4
+         j = j / 10;
+      }//3
+      
+   }//2
+   printf("%d", cnt);
+   return 0;
+}//1

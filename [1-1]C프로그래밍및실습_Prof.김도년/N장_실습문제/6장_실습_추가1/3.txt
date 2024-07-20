@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	
+	while (1)
+	{
+		scanf("%d", &n);
+		if (n == 0)	break;
+
+		int mul = 1;
+		for (int i = 1; i <= n; i++)
+		{
+			mul *= i;
+		}
+		printf("%d\n", mul);
+	}
+
+	return 0;
+}

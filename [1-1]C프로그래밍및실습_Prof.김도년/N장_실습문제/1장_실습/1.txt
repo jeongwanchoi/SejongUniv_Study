@@ -1,0 +1,13 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	printf("222222\n");
+	printf("2    2\n");
+	printf("2    2\n");
+	printf("222222");
+
+	return 0;
+}

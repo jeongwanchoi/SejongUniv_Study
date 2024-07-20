@@ -1,0 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+	double n;
+	scanf("%lf", &n);
+
+	double r = n / (2 * 3.14);
+	int area = (int)round(r * r * 3.14);
+
+	printf("%d", area);
+
+	return 0;
+}

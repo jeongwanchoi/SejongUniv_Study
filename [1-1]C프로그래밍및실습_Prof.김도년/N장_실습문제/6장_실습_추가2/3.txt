@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int sum = 0;
+	for (int i = 1; i <= n; i++)
+	{
+		if (n % i == 0)
+		{
+			sum += i;
+		}
+	}
+
+	int rvs = 0;
+	int edit_sum = sum;
+	while (edit_sum > 0)
+	{
+		int digit = edit_sum % 10;
+		rvs = (rvs * 10) + digit;
+		edit_sum /= 10;
+	}
+	printf("%d", rvs);
+
+	return 0;
+}

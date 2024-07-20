@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	char prev = 0, ch = 0;
+
+	int time_do = 0,
+		time_re = 0;
+
+	while (1)
+	{
+		scanf("%c", &prev);
+		if (prev == ' ')	continue;
+		if (prev == '.')	break;
+		else
+		{
+			scanf("%c", &ch);
+		}
+
+		if (prev == 'd' && ch == 'o')
+		{
+			time_do++;
+		}
+		else if (prev == 'r' && ch == 'e')
+		{
+			time_re++;
+		}
+	}
+	printf("do=%d\n", time_do);
+	printf("re=%d", time_re);
+
+	return 0;
+}

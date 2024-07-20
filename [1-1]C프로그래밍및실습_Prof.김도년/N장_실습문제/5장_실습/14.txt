@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n, pay;
+	scanf("%d", &n);
+	scanf("%d", &pay);
+
+	int change;
+	int coin_500 = 0, coin_100 = 0;
+	
+	switch (n)
+	{
+	case 1:
+		printf("Americano\n");
+		change = pay - 500;
+
+		coin_500 = change / 500;
+		coin_100 = (change % 500) / 100;
+		break;
+	case 2:
+		printf("Cafe Latte\n");
+		change = pay - 400;
+
+		coin_500 = change / 500;
+		coin_100 = (change % 500) / 100;
+		break;
+	case 3:
+		printf("Lemon Tea\n");
+		change = pay - 300;
+
+		coin_500 = change / 500;
+		coin_100 = (change % 500) / 100;
+		break;
+	}
+	printf("%d %d", coin_500, coin_100);
+
+	return 0;
+}

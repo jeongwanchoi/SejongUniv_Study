@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int edit_n = n;
+	//2의 n제곱
+	int sq = 0;
+	
+	int result = 0;
+	while (edit_n > 0)
+	{
+		int digit = edit_n % 10;
+		edit_n /= 10;
+
+		//digit에 바로 2의 n제곱 처리
+		for (int i = 0; i < sq; i++)
+		{
+			digit *= 2;
+		}
+		sq++;
+		//(digit1 * 2의 0제곱) + (digit2 * 2의 1제곱) + ...
+		//반드시 각각의 digit마다 끊어서 제곱처리 후 result로 합산
+		result += digit;
+	}
+	printf("%d", result);
+
+	return 0;
+}

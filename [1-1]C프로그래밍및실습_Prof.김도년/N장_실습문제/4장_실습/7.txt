@@ -1,0 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	char ch;
+	scanf("%c", &ch);
+
+	int Q = ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'));
+
+	printf("%d", Q);
+
+	return 0;
+}

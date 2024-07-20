@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int std, input, t = 0; // 정수형 변수 3개 선언
+
+	scanf("%d", &std); //input
+
+	do //do-while
+	{
+		scanf("%d", &input); //input
+
+		if (std > input) //#s check
+		{
+			printf("%d<?\n", input); //printf
+		}
+		else if (std < input)
+		{
+			printf("%d>?\n", input);//printf
+		}
+		else
+		{
+			printf("%d==?\n", input);//printf
+		}
+		t++;
+	} while (input != std);
+
+	printf("%d", t); //print time
+
+	return 0; //return 0
+}

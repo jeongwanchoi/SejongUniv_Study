@@ -1,0 +1,14 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int mon, date;
+	scanf("%d", &mon);
+	scanf("%d", &date);
+
+	printf("My birthday is month %d date %d.", mon, date);
+
+	return 0;
+}

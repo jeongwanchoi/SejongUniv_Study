@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS //for ignoring warning alert
+
+#include <stdio.h>
+
+int main()
+{
+	int n, sum = 0; //two integer variables
+
+	while (1)
+	{
+		scanf("%d", &n); //input
+		/*
+			scanf함수 특 -> 스페이스, 탭, 개행을 기준으로 구분함
+			2 3 4 0 입력 -> 스페이스를 기준으로 각각을 숫자로 인식
+			
+			scanf 함수는 입력 스트림으로부터 데이터를 읽어와서
+			지정된 형식에 맞게 해석한 후 변수에 저장합니다.
+
+			입력 스트림은 데이터를 프로그램으로 가져오는 중간 매개체로 볼 수 있습니다.
+		*/
+		sum += n; //sum
+		
+		if (n == 0)	break; //break
+	}
+	printf("%d", sum); //print
+
+	return 0; //return 0
+}

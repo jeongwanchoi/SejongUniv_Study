@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+	int year, mon, date; //year mon date 정수형 변수 3개 선언
+
+	scanf("%d/%d/%d", &year, &mon, &date); //'/'를 기준으로 입력받기
+
+	printf("year %04d month %02d date %02d", year, mon, date); //출력
+
+	return 0; //리턴 0
+}

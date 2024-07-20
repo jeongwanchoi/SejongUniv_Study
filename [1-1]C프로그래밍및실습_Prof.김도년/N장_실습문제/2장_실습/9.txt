@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+	char small; //문자형 변수 small 선언
+
+	scanf("%c", &small); //small 입력받음
+
+	printf("%c", small +'A'-'a'); // 대응되는 대문자 출력
+
+	return 0; //리턴 0
+}

@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main()
+{
+	char ch; //문자형 변수 ch선언
+
+	scanf("%c", &ch); //ch입력받음
+
+	printf("(%%c) %c\n", ch); //%c 로 출력
+	printf("(%%d) %d", ch - '0'); //%d로 출력
+	
+
+	return 0; //리턴 0
+}

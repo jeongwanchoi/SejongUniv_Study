@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int edit_n = n;
+	int rvs = 0;
+	while (edit_n > 0)
+	{
+		int digit = edit_n % 10;
+		rvs = (rvs * 10) + digit;
+		edit_n /= 10;
+	}
+
+	for (int i = 2; i <= rvs; i++)
+	{
+		int found = 0;
+		for (int j = 2; j < i; j++)
+		{
+			if (i % j == 0)	found = 1;
+		}
+
+		if (!found)
+		{
+			printf(" %d", i);
+		}
+	}
+
+	return 0;
+}

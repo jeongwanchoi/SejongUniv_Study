@@ -1,0 +1,46 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	//서로 다른 0~9 3개
+	int ans1, ans2, ans3;
+	int test1, test2, test3;
+
+	scanf("%d %d %d", &ans1, &ans2, &ans3);
+	scanf("%d %d %d", &test1, &test2, &test3);
+
+	int strike = 0, ball = 0;
+
+	//strike check
+	if (ans1 == test1)
+	{
+		strike++;
+	}
+	if (ans2 == test2)
+	{
+		strike++;
+	}
+	if (ans3 == test3)
+	{
+		strike++;
+	}
+
+	//ball check
+	if (test1 == ans2 || test1 == ans3)
+	{
+		ball++;
+	}
+	if (test2 == ans1 || test2 == ans3)
+	{
+		ball++;
+	}
+	if (test3 == ans1 || test3 == ans2)
+	{
+		ball++;
+	}
+	printf("%dS%dB", strike, ball);
+
+	return 0;
+}

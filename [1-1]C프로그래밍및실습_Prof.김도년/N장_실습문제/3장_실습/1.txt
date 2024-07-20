@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+	int n; // 정수형 변수 n 선언
+
+	scanf("%x", &n); // 16진수 정수 입력받음
+
+	printf("decimal number = %d\n", n); // 10진수로 출력
+	printf("octal number = %o\n", n); // 8진수로 출력
+
+	return 0; //리턴 0
+}

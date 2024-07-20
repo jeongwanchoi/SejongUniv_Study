@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+	int kor, eng, math;
+	int sum = 0;
+	double average; //실수형 평균
+	int int_average; //정수형 평균
+	int condition; //switch문 조건에 사용됨.
+
+	scanf("%d %d %d", &kor, &eng, &math);
+	sum = kor + eng + math;
+	average = sum / 3.0; // 평균 실수형으로 구함.
+	int_average = (int)average; //switch구문 사용하기 위해 평균을 정수형으로 변환
+	condition = int_average / 25;
+
+	printf("%.2f\n", average); //평균 출력
+
+	switch (condition) {
+	case 4: //평균 == 100
+	case 3: //평균 75.0이상
+		printf("A\n");
+		break;
+	case 2: //평균 50.0이상 75.0미만
+		printf("B\n");
+		break;
+	default: //평균 50.0미만
+		printf("F\n");
+		break;
+	}
+
+	return 0;
+}

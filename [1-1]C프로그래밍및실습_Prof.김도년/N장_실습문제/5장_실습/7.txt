@@ -1,0 +1,31 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int m;
+	scanf("%d", &m);
+
+	int correct = 0;
+	if (n == m)
+	{
+		printf("RIGHT\n");
+		correct = 1;
+	}
+	else if (n > m)	printf("UP\n");
+	else	printf("DOWN\n");
+
+	if (!correct)
+	{
+		scanf("%d", &m);
+		if (n == m)	printf("RIGHT");
+		else if (n > m)	printf("UP");
+		else	printf("DOWN");
+	}
+
+	return 0;
+}

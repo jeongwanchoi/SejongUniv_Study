@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+	double a, b; //실수형 변수 a, b 선언
+
+	a = 4.200000; //a 초기화
+	b = 5.100000; //b 초기화
+
+	printf("first number: %f\n", a); //a 출력
+	printf("second number: %f\n", b);//b 출력
+	printf("sum: %f", a+b); //a와 b 합 출력
+
+	return 0; //리턴 0
+}

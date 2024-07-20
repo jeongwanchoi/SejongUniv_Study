@@ -1,0 +1,39 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()
+{
+	int kor, eng, math;
+	scanf("%d %d %d", &kor, &eng, &math);
+
+	double avg = (kor + eng + math) / 3;
+
+	if (avg >= 91.5)
+	{
+		printf("A");
+	}
+	else if (avg >= 85.5)
+	{
+		printf("B");
+	}
+	else if (avg >= 80.5)
+	{
+		printf("C");
+	}
+	else
+	{
+		printf("F");
+	}
+
+	if (kor == 100 || eng == 100 || math == 100)
+	{
+		printf("Good");
+	}
+	if (kor < 60 || eng < 60 || math < 60)
+	{
+		printf("Bad");
+	}
+
+	return 0;
+}
